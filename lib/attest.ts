@@ -9,11 +9,11 @@ import { getSigner } from "./helper";
   const srcChain  = wh.getChain("Solana");
   const destChain = wh.getChain("Sepolia");
 
-  const tokenMint = "4UaLuXZqDT4WFKSkxR9VB1hgyi4DwcBvRiWoTF9YuyJN";
+    const tokenMint = "B6dPFP4DbUx6PEfK7Vu3c23tcgCPiGn5iJ5X2xeAyZdL";
   const tokenId   = Wormhole.tokenId("Solana", tokenMint);
 
-  // --- signers ---
-  const source      = await getSigner(srcChain);
+  //  signers 
+  const source = await getSigner(srcChain);
   const destination = await getSigner(destChain);
 
   const tbOrig = await srcChain.getTokenBridge();
@@ -51,19 +51,16 @@ import { getSigner } from "./helper";
   console.log("Got VAA for attestation");
 
   
-
   // 5) Submit attestation on Sepolia
   console.log("Submitting attestation on Sepolia...");
 
   const payerDest = toNative(destChain.chain, destination.signer.address());
   const subAttestation = tbDest.submitAttestation(vaa, payerDest);
 
-  console.dir(subAttestation, { depth: null }); // 👈 TEMP: debug
-
   const destTxids = await signSendWait(destChain, subAttestation, destination.signer);
   console.log("Attestation tx on Sepolia:", destTxids);
 
   // 6) Confirm wrapped exists
   const wrapped = await tbDest.getWrappedAsset(tokenId);
-  console.log("✅ Wrapped ERC-20 on Sepolia:", wrapped);
+  console.log(" Wrapped ERC-20 on Sepolia:", wrapped);
 })();
