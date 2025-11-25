@@ -1,0 +1,50 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+out/
+.next/
+.vercel/
+coverage/
+*.lcov
+
+# Environment / secrets
+.env
+.env.*.local
+.env.local
+*.pem
+*.key
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs / editors
+.vscode/
+.idea/
+*.iml
+
+# Python (if present)
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+env/
+ENV/
+
+# Databases / temporary
+*.sqlite3
+*.db
+tmp/
+temp/
+*.pid
+
+# Misc
+*.log
+*.cache
