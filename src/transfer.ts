@@ -9,7 +9,7 @@ import { getSigner, getTokenDecimals } from '../lib/helper';
     const wh = await wormhole('Testnet', [solana, evm]);
     console.log('Wormhole SDK initialized');
 
-    const tokenMint = '4UaLuXZqDT4WFKSkxR9VB1hgyi4DwcBvRiWoTF9YuyJN';
+    const tokenMint = '79xXY1nrGXbJ35c5xcTdyayss5r1BLPUWBhZ3eko41Yc';
 
     const sendChain = wh.getChain('Solana');
     const rcvChain = wh.getChain('Sepolia');
@@ -18,7 +18,7 @@ import { getSigner, getTokenDecimals } from '../lib/helper';
     const destination = await getSigner(rcvChain);
 
     const tokenId = Wormhole.tokenId('Solana', tokenMint);
-    const amt = '1';
+    const amt = '100';
 
     const decimals = await getTokenDecimals(wh, tokenId, sendChain);
     const transferAmount = amount.units(amount.parse(amt, decimals));
