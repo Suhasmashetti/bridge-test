@@ -17,12 +17,6 @@ dotenv.config();
 
 const { EVM_PRIVATE_KEY, SOLANA_PRIVATE_KEY } = process.env;
 
-/**
- * Returns a signer for the given chain using locally scoped credentials.
- * The required values (EVM_PRIVATE_KEY, SOL_PRIVATE_KEY, SUI_MNEMONIC) must
- * be loaded securely beforehand, for example via a keystore, secrets
- * manager, or environment variables (not recommended).
- */
 export async function getSigner<N extends Network, C extends Chain>(
   chain: ChainContext<N, C>
 ): Promise<{
@@ -59,10 +53,7 @@ export async function getSigner<N extends Network, C extends Chain>(
   };
 }
 
-/**
- * Get the number of decimals for the token on the source chain.
- * This helps convert a user-friendly amount (e.g., '1') into raw units.
- */
+
 export async function getTokenDecimals<N extends Network>(
   wh: Wormhole<N>,
   token: TokenId,
